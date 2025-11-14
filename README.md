@@ -1,4 +1,3 @@
-
 # eCommerce Microservices Platform
 
 ## Project Description
@@ -49,24 +48,25 @@ Key features:
 
 ### Steps
 
-1. Build Docker images for all services:
+1. Builds Docker images for all services and starts them including Kafka, PostgreSQL, and MongoDB:
 
 ```bash
-docker-compose build
+docker-compose up --build  
 ```
 
-2. Start all services including Kafka, PostgreSQL, and MongoDB:
+2. Accesses the API Gateway at `http://localhost:8080`
+
+3. Stops the services:
 
 ```bash
-docker-compose up -d
+docker-compose up --build  
 ```
 
-3. Access the API Gateway at `http://localhost:8080`
-
-4. Stop the services:
+4. Optionally for cleanup:
 
 ```bash
-docker-compose down
+docker builder prune -f 
+docker system prune -a --volumes -f 
 ```
 
 ---
@@ -134,4 +134,3 @@ docker-compose down
 | **Singleton / Spring Beans**  | Services and configuration beans are singletons managed by Spring.                 |
 | **Retry / Backoff Pattern**   | Notification Service retry logic with exponential backoff for failed sends.        |
 | **API Gateway Pattern**       | Spring Cloud Gateway provides unified entry point, routing, and service discovery. |
-
