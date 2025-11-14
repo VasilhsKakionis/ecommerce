@@ -60,8 +60,8 @@ services:
     container_name: order-postgres
     environment:
       POSTGRES_DB: orderdb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: public_user
+      POSTGRES_PASSWORD: publicN3xt!
     ports:
       - "5432:5432"
     volumes:
@@ -74,8 +74,8 @@ services:
     container_name: event-postgres
     environment:
       POSTGRES_DB: eventdb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: public_user
+      POSTGRES_PASSWORD: publicN3xt!
     ports:
       - "5433:5432"
     volumes:
@@ -88,8 +88,8 @@ services:
     container_name: notification-postgres
     environment:
       POSTGRES_DB: notificationdb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: public_user
+      POSTGRES_PASSWORD: publicN3xt!
     ports:
       - "5434:5432"
     volumes:
@@ -110,8 +110,8 @@ services:
       - kafka
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://order-postgres:5432/orderdb
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_DATASOURCE_USERNAME: public_user
+      SPRING_DATASOURCE_PASSWORD: publicN3xt!
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       SPRING_PROFILES_ACTIVE: docker
       ENABLE_DEBUG: "true"
@@ -131,8 +131,8 @@ services:
       - kafka
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://event-postgres:5432/eventdb
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_DATASOURCE_USERNAME: public_user
+      SPRING_DATASOURCE_PASSWORD: publicN3xt!
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       SPRING_PROFILES_ACTIVE: docker
       ENABLE_DEBUG: "false"
@@ -151,8 +151,8 @@ services:
       - notification-postgres
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://notification-postgres:5432/notificationdb
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_DATASOURCE_USERNAME: public_user
+      SPRING_DATASOURCE_PASSWORD: publicN3xt!
       SPRING_PROFILES_ACTIVE: docker
       ENABLE_DEBUG: "false"
     ports:
